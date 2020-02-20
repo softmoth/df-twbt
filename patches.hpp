@@ -1311,7 +1311,88 @@ static void apply_patch(MemoryPatcher *mp, patchdef &p)
             0x10a2f30, 5, true, { 0x41, 0xc6, 0x00, 0x00, 0xc3 }
         };
         #endif      
+#elif defined(DF_04702)
+    #ifdef WIN32
+        #define A_LOAD_MULTI_PDIM  0x140c1e5d0
+        #define A_RENDER_MAP       0x1409d72d0
+        #define A_RENDER_UPDOWN    0x1406ef250
 
+        static patchdef p_display = { 0x140478aab, 5 };
+
+        static patchdef p_dwarfmode_render = { 0x14042c88a, 5 };
+
+        static patchdef p_advmode_render[] = {
+            { 0x14037180a, 5+7+5 }, { 0x140371871, 5+7+5 }, { 0x1403718d7, 5+7+5 }, { 0x140371e02, 5+7+5 }
+        };
+
+        static patchdef p_render_lower_levels = {
+            0x140d72de0, 9, true, { 0x48, 0x8b, 0x44, 0x24, 0x28, 0xc6, 0x00, 0x00, 0xc3 }
+        };
+    #elif defined(__APPLE__)
+        #error Mac OSX not currently supported for 0.47.02
+    #else
+        #define A_RENDER_MAP       0xec8270
+        #define A_RENDER_UPDOWN    0xc87720
+        #define NO_DISPLAY_PATCH
+
+        static patchdef p_dwarfmode_render = { 0x774035, 5 };
+
+        static patchdef p_advmode_render[] = {
+            { 0x740142, 5+5+5 }, { 0x74076a, 5+5+5 }, { 0x7407a9, 5+5+5 }, { 0x740802, 5+5+5 }
+        };
+
+        static patchdef p_render_lower_levels = {
+            0x1154050, 5, true, { 0x41, 0xc6, 0x00, 0x00, 0xc3 }
+        };
+    #endif
+#elif defined(DF_04703)
+    #ifdef WIN32
+        #define A_LOAD_MULTI_PDIM  0x140c1f2c0
+        #define A_RENDER_MAP       0x1409d7fa0
+        #define A_RENDER_UPDOWN    0x1406efeb0
+
+        static patchdef p_display = { 0x1404796ab, 5 };
+
+        static patchdef p_dwarfmode_render = { 0x14042d48a, 5 };
+
+        static patchdef p_advmode_render[] = {
+            { 0x1403723fa, 5+7+5 }, { 0x140372461, 5+7+5 }, { 0x1403724c7, 5+7+5 }, { 0x1403729f2, 5+7+5 }
+        };
+
+        static patchdef p_render_lower_levels = {
+            0x140d74290, 9, true, { 0x48, 0x8b, 0x44, 0x24, 0x28, 0xc6, 0x00, 0x00, 0xc3 }
+        };
+    #elif defined(__APPLE__)
+        #define A_LOAD_MULTI_PDIM  0x101371660
+        #define A_RENDER_MAP       0x100c1c890
+        #define A_RENDER_UPDOWN    0x100973f90
+
+        static patchdef p_display = { 0x101303bdb, 5 };
+
+        static patchdef p_dwarfmode_render = { 0x10054036a, 5 };
+
+        static patchdef p_advmode_render[] = {
+            { 0x1004db7bf, 5+3+5 }, { 0x1004db860, 5+7+5 }, { 0x1004dbdda, 5+3+5 }, { 0x1004dc0ea, 5+3+5 }
+        };
+
+        static patchdef p_render_lower_levels = {
+            0x100ec6c70, 5, true, { 0x41, 0xc6, 0x00, 0x00, 0xc3 }
+        };
+    #else
+        #define A_RENDER_MAP       0xec8f40
+        #define A_RENDER_UPDOWN    0xc88f90
+        #define NO_DISPLAY_PATCH
+
+        static patchdef p_dwarfmode_render = { 0x774755, 5 };
+
+        static patchdef p_advmode_render[] = {
+            { 0x740882, 5+5+5 }, { 0x740eaa, 5+5+5 }, { 0x740ee9, 5+5+5 }, { 0x740f42, 5+5+5 }
+        };
+
+        static patchdef p_render_lower_levels = {
+            0x1155720, 5, true, { 0x41, 0xc6, 0x00, 0x00, 0xc3 }
+        };
+    #endif
 #else
     #error Unsupported DF version
 #endif
