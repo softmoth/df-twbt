@@ -1395,20 +1395,20 @@ static void apply_patch(MemoryPatcher *mp, patchdef &p)
     #endif
     #elif defined(DF_04704)
     #ifdef WIN32
-        #define A_LOAD_MULTI_PDIM  0x140c1f2c0
-        #define A_RENDER_MAP       0x1409d7fa0
-        #define A_RENDER_UPDOWN    0x1406efeb0
+        #define A_LOAD_MULTI_PDIM  0x140c1f670
+        #define A_RENDER_MAP       0x1409d8200
+        #define A_RENDER_UPDOWN    0x1406f0090
 
-        static patchdef p_display = { 0x1404796ab, 5 };
+        static patchdef p_display = { 0x140479beb, 5 };
 
-        static patchdef p_dwarfmode_render = { 0x14042d48a, 5 };
+        static patchdef p_dwarfmode_render = { 0x14042d93a, 5 };
 
         static patchdef p_advmode_render[] = {
-            { 0x1403723fa, 5+7+5 }, { 0x140372461, 5+7+5 }, { 0x1403724c7, 5+7+5 }, { 0x1403729f2, 5+7+5 }
+            { 0x14037283a, 5+7+5 }, { 0x1403728a1, 5+7+5 }, { 0x140372907, 5+7+5 }, { 0x140372e32, 5+7+5 }
         };
 
         static patchdef p_render_lower_levels = {
-            0x140d74290, 9, true, { 0x48, 0x8b, 0x44, 0x24, 0x28, 0xc6, 0x00, 0x00, 0xc3 }
+            0x140d747c0, 9, true, { 0x48, 0x8b, 0x44, 0x24, 0x28, 0xc6, 0x00, 0x00, 0xc3 }
         };
     #elif defined(__APPLE__)
         #define A_LOAD_MULTI_PDIM  0x101373670
