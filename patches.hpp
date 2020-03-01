@@ -1427,18 +1427,17 @@ static void apply_patch(MemoryPatcher *mp, patchdef &p)
             0x100ec89c0, 5, true, { 0x41, 0xc6, 0x00, 0x00, 0xc3 }
         };
     #else
-        #define A_RENDER_MAP       0xec8f40
-        #define A_RENDER_UPDOWN    0xc88f90
+        #define A_RENDER_MAP       0xec9420
+        #define A_RENDER_UPDOWN    0xc895f0
         #define NO_DISPLAY_PATCH
 
-        static patchdef p_dwarfmode_render = { 0x774755, 5 };
-
+        static patchdef p_dwarfmode_render = { 0x774cf5, 5 };
         static patchdef p_advmode_render[] = {
-            { 0x740882, 5+5+5 }, { 0x740eaa, 5+5+5 }, { 0x740ee9, 5+5+5 }, { 0x740f42, 5+5+5 }
+            { 0x740fb2, 5+5+5 }, { 0x7415da, 5+5+5 }, { 0x741619, 5+5+5 }, { 0x741672, 5+5+5 }
         };
 
         static patchdef p_render_lower_levels = {
-            0x1155720, 5, true, { 0x41, 0xc6, 0x00, 0x00, 0xc3 }
+            0x1156420, 5, true, { 0x41, 0xc6, 0x00, 0x00, 0xc3 }
         };
     #endif
 
