@@ -159,7 +159,7 @@ static void write_tile_arrays_map(renderer_cool *r, int x, int y, GLfloat *fg, G
                     {
                         override_group &og = *it;
 
-                        auto &ilist = world->items.other[og.other_id];
+                        auto &ilist = world->items.other[(df::enums::items_other_id::items_other_id) og.other_id];
                         for (auto it2 = ilist.begin(); it2 != ilist.end(); it2++)
                         {
                             df::item *item = *it2;
@@ -202,7 +202,7 @@ static void write_tile_arrays_map(renderer_cool *r, int x, int y, GLfloat *fg, G
                     {
                         override_group &og = *it;
 
-                        auto &ilist = world->buildings.other[og.other_id];
+                        auto &ilist = world->buildings.other[(df::enums::buildings_other_id::buildings_other_id) og.other_id];
                         for (auto it2 = ilist.begin(); it2 != ilist.end(); it2++)
                         {
                             df::building *bld = *it2;
