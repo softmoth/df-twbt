@@ -1458,20 +1458,20 @@ static void apply_patch(MemoryPatcher *mp, patchdef &p)
             0x140d75450, 9, true, { 0x48, 0x8b, 0x44, 0x24, 0x28, 0xc6, 0x00, 0x00, 0xc3 }
         };
     #elif defined(__APPLE__)
-        #define A_LOAD_MULTI_PDIM  0x101373670
-        #define A_RENDER_MAP       0x100c1e120
-        #define A_RENDER_UPDOWN    0x100975820
+        #define A_LOAD_MULTI_PDIM  0x101375600
+        #define A_RENDER_MAP       0x100c1fa20
+        #define A_RENDER_UPDOWN    0x100975cb0
 
-        static patchdef p_display = { 0x101305beb, 5 };
+        static patchdef p_display = { 0x101307b7b, 5 };
 
-        static patchdef p_dwarfmode_render = { 0x10054180a, 5 };
+        static patchdef p_dwarfmode_render = { 0x100541c3a, 5 };
 
         static patchdef p_advmode_render[] = {
-            { 0x1004dcb2f, 5+3+5 }, { 0x1004dcbd0, 5+7+5 }, { 0x1004dd14a, 5+3+5 }, { 0x1004dd45a, 5+3+5 }
+            { 0x1004dcf4f, 5+3+5 }, { 0x1004dcff0, 5+7+5 }, { 0x1004dd56a, 5+3+5 }, { 0x1004dd87a, 5+3+5 }
         };
 
         static patchdef p_render_lower_levels = {
-            0x100ec89c0, 5, true, { 0x41, 0xc6, 0x00, 0x00, 0xc3 }
+            0x100eca2e0, 5, true, { 0x41, 0xc6, 0x00, 0x00, 0xc3 }
         };
     #else
         #define A_RENDER_MAP       0xeca570
