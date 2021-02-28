@@ -297,7 +297,9 @@ static bool handle_override_command(vector<string> &tokens, std::map<string, int
                 o.subtype = -1;
         }
         else if (kind == 'I')
-        {
+        {            
+            if (tokens[2] == "ANY")
+                return false;
             if (!parse_enum_or_int<items_other_id::items_other_id>(tokens[2], id, items_other_id::IN_PLAY))
                 return false;
             if (!parse_enum_or_int<item_type::item_type>(tokens[3], o.type))
