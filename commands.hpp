@@ -47,13 +47,16 @@ command_result multilevel_cmd (color_ostream &out, std::vector <std::string> & p
 
         else if (param0 == "fogcolor" && pcnt >= 4)
         {
-            float c[3];
+            float c[4];
             bool ok = parse_float(parameters[1], c[0]) &&
                       parse_float(parameters[2], c[1]) &&
                       parse_float(parameters[3], c[2]);
 
             if (ok)
+            {
+                c[3] = 0;
                 memcpy(fogcolor, c, sizeof(fogcolor));
+            }
             else
                 return CR_WRONG_USAGE;
         }

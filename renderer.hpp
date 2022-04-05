@@ -52,7 +52,7 @@ static void write_tile_vertexes(GLfloat x, GLfloat y, GLfloat *vertex, float d)
 
 renderer_cool::renderer_cool()
 {
-    dummy = 'TWBT';
+    dummy = TWBT_MAGIC_IDENT;
     gvertexes = 0, gfg = 0, gtex = 0;
     gdimx = 0, gdimy = 0, gdimxfull = 0, gdimyfull = 0;
     gdispx = 0, gdispy = 0;

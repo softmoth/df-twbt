@@ -22,6 +22,8 @@ struct _renderer_opengl : public df::renderer
 };
 typedef _renderer_opengl renderer_opengl; // This is to make Linux happy
 
+const uint32_t TWBT_MAGIC_IDENT = 0x54574254;
+
 struct renderer_cool : renderer_opengl
 {
     uint32_t dummy;
@@ -66,7 +68,7 @@ struct renderer_cool : renderer_opengl
     virtual void _last_vmethod() {};
 
     bool is_twbt() {
-        return (this->dummy == 'TWBT');
+        return (this->dummy == TWBT_MAGIC_IDENT);
     };
 
     void output_string(int8_t color, int x, int y, std::string str)
