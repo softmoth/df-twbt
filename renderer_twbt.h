@@ -24,6 +24,13 @@ typedef _renderer_opengl renderer_opengl; // This is to make Linux happy
 
 const uint32_t TWBT_MAGIC_IDENT = 0x54574254;
 
+enum reshape_status
+{
+    reshape_none,
+    reshape_sidebar,
+    reshape_all,
+};
+
 struct renderer_cool : renderer_opengl
 {
     uint32_t dummy;
@@ -32,7 +39,7 @@ struct renderer_cool : renderer_opengl
     int gdimx, gdimy, gdimxfull, gdimyfull;
     int gdispx, gdispy;
     float goff_x, goff_y, gsize_x, gsize_y;
-    bool needs_reshape;
+    reshape_status needs_reshape;
     int needs_zoom;
     bool needs_full_update;
     unsigned char *gscreen;
